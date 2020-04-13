@@ -6,6 +6,7 @@ const Formulario = () => {
   const [busqueda, guardarBusqueda] = useState({
     nombre: "",
     categoria: "",
+    veralcohol: "",
   });
 
   const { categorias } = useContext(CategoriasContext);
@@ -28,9 +29,7 @@ const Formulario = () => {
         guardarConsultar(true);
       }}
     >
-      <h3 className="fw-300 centrar-texto">
-        Busca bebidas por Categoría o Ingrediente
-      </h3>
+      <h3 className="fw-300 centrar-texto">Busca una Bebida</h3>
 
       <input
         name="nombre"
@@ -43,7 +42,6 @@ const Formulario = () => {
         className="form-control"
         name="categoria"
         onChange={obtenerDatosReceta}
-        required
       >
         <option value="">-- Selecciona Categoría --</option>
         {categorias.map((categoria) => (
@@ -52,6 +50,17 @@ const Formulario = () => {
           </option>
         ))}
       </select>
+
+      <select
+        className="form-control"
+        name="veralcohol"
+        onChange={obtenerDatosReceta}
+      >
+        <option value="">-- Con/sin Alcohol --</option>
+        <option value="Alcoholic">Alcoholic</option>
+        <option value="Non_Alcoholic">Non_Alcoholic</option>
+      </select>
+
       <div class="buscarbebidas">
         <input
           type="submit"

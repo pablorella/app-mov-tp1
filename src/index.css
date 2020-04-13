@@ -186,7 +186,6 @@ p {
 .mobile-menu img {
   width: 5rem;
 }
-
 .navegacion:target {
   display: block;
 }
@@ -216,7 +215,6 @@ select {
 .contenido-anuncio p {
   margin: 0;
 }
-//
 
 .imagen-chica {
   width: 20px;
@@ -245,6 +243,7 @@ select {
     grid-column-gap: 2rem;
   }
 }
+
 @media (min-width: 1024px) {
   .contenedor-anuncios {
     display: grid;

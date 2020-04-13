@@ -11,18 +11,43 @@ const RecetasProvider = (props) => {
   const [busqueda, buscarRecetas] = useState({
     nombre: "",
     categoria: "",
+    veralcohol: "",
   });
   const [consultar, guardarConsultar] = useState(false);
 
-  const { nombre, categoria } = busqueda;
+  const { nombre, categoria, veralcohol } = busqueda;
 
   useEffect(() => {
     if (consultar) {
       const obtenerRecetas = async () => {
-        const url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}`;
+        let url = "";
+        /*         console.log("la categoraia es:" + categoria);
+         */
+
+        if (categoria.trim() != "") {
+          url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&c=${categoria}&a=${veralcohol}`;
+          /*           console.log("no es nula la categorai");
+           */
+        } else if (nombre.trim() != "" && veralcohol.trim() != "") {
+          url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}&a=${veralcohol}`;
+        } else if (nombre.trim() != "") {
+          url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${nombre}`;
+        } else if (veralcohol.trim() != "") {
+          url = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=&a=${veralcohol}`;
+        }
+        /*         console.log(url);
+         */
 
         const resultado = await axios.get(url);
-
+        //console.log(resultado.data.drinks);
+        //alert(resultado.data.drinks);
+        if (
+          resultado.data.drinks === "" ||
+          resultado.data.drinks === undefined
+        ) {
+          alert("No se encontraron datos");
+          return;
+        }
         /*         console.log(resultado.data.drinks.length);
          */ if (paginaactual === 1) {
           guardarRecetas(
