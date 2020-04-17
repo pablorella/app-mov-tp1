@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, Fragment } from "react";
 import { CategoriasContext } from "../context/CategoriasContext";
 import { RecetasContext } from "../context/RecetasContext";
-
+import CincoBusquedas from "../components/CincoBusquedas";
 const Formulario = () => {
   const [busqueda, guardarBusqueda] = useState({
     nombre: "",
@@ -21,54 +21,82 @@ const Formulario = () => {
   };
 
   return (
-    <form
-      className="col-12"
-      onSubmit={(e) => {
-        e.preventDefault();
-        buscarRecetas(busqueda);
-        guardarConsultar(true);
-      }}
-    >
-      <h3 className="fw-300 centrar-texto">Busca una Bebida</h3>
-
-      <input
-        name="nombre"
-        className="form-control"
-        type="text"
-        placeholder="Buscar por Ingrediente"
-        onChange={obtenerDatosReceta}
-      />
-      <select
-        className="form-control"
-        name="categoria"
-        onChange={obtenerDatosReceta}
+    <Fragment>
+      <form
+        className="col-12"
+        onSubmit={(e) => {
+          e.preventDefault();
+          buscarRecetas(busqueda);
+          guardarConsultar(true);
+        }}
       >
-        <option value="">-- Selecciona Categoría --</option>
-        {categorias.map((categoria) => (
-          <option key={categoria.strCategory} value={categoria.strCategory}>
-            {categoria.strCategory}
-          </option>
-        ))}
-      </select>
+        <h3 className="fw-300 centrar-texto">Busca una Bebida</h3>
+        <ul>
+          <CincoBusquedas />
+        </ul>
+        {/*      <ul>
+          Busquedas recientes
+          <li>
+            {JSON.parse(localStorage["busquedas"])[0]
+              ? JSON.parse(localStorage["busquedas"])[0].nombre +
+                " " +
+                JSON.parse(localStorage["busquedas"])[0].categoria +
+                " " +
+                JSON.parse(localStorage["busquedas"])[0].veralcohol
+              : alert("no existe")}
+          </li>
+          <li>
+            {JSON.parse(localStorage["busquedas"])[1]
+              ? JSON.parse(localStorage["busquedas"])[1].nombre +
+                " " +
+                JSON.parse(localStorage["busquedas"])[1].categoria +
+                " " +
+                JSON.parse(localStorage["busquedas"])[1].veralcohol
+              : alert("no existe")}
+          </li>
+        </ul> */}
+        {/*       {JSON.parse(localStorage["busquedas"])[0]}
+         */}{" "}
+        <div class="conetendor-input">
+          <input
+            name="nombre"
+            className="form-input"
+            type="text"
+            placeholder="Buscar por Ingrediente"
+            onChange={obtenerDatosReceta}
+          />
+          <select
+            className="form-input"
+            name="categoria"
+            onChange={obtenerDatosReceta}
+          >
+            <option value="">-- Selecciona Categoría --</option>
+            {categorias.map((categoria) => (
+              <option key={categoria.strCategory} value={categoria.strCategory}>
+                {categoria.strCategory}
+              </option>
+            ))}
+          </select>
 
-      <select
-        className="form-control"
-        name="veralcohol"
-        onChange={obtenerDatosReceta}
-      >
-        <option value="">-- Con/sin Alcohol --</option>
-        <option value="Alcoholic">Alcoholic</option>
-        <option value="Non_Alcoholic">Non_Alcoholic</option>
-      </select>
-
-      <div class="buscarbebidas">
-        <input
-          type="submit"
-          className="boton boton-amarillo"
-          value="Buscar Bebidas"
-        />
-      </div>
-    </form>
+          <select
+            className="form-input"
+            name="veralcohol"
+            onChange={obtenerDatosReceta}
+          >
+            <option value="">-- Con/sin Alcohol --</option>
+            <option value="Alcoholic">Alcoholic</option>
+            <option value="Non_Alcoholic">Non_Alcoholic</option>
+          </select>
+        </div>
+        <div class="buscarbebidas">
+          <input
+            type="submit"
+            className="boton boton-amarillo"
+            value="Buscar Bebidas"
+          />
+        </div>
+      </form>
+    </Fragment>
   );
 };
 

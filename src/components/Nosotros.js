@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import imggg from "../img/nosotros.jpg";
 import Map from "./Map";
+
 import credentials from "../utilidades/credentials";
 
 const xx = () => {
@@ -53,11 +54,13 @@ const xx = () => {
           </div>
         </div>
         <h1 className="fw-300 centrar-texto">Ubicacion</h1>
+
         <Map
           googleMapURL={mapURL}
           containerElement={<div style={{ height: "400px" }} />}
           mapElement={<div style={{ height: "100%" }} />}
           loadingElement={<p>Cargando</p>}
+          marker={{ lat: -34.9214, lng: -57.9544 }}
         />
       </div>
     </Fragment>

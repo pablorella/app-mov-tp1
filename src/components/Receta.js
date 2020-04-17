@@ -1,10 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import React, { useContext, useState } from "react";
 import { ModalContext } from "../context/ModalContext";

@@ -13,7 +13,7 @@ const xx = () => {
             <input
               type="text"
               id="datos"
-              placeholder="Datos del libro seleccionado: título, autor, etc. "
+              placeholder="Datos que queres compartir "
               required
             />
 
