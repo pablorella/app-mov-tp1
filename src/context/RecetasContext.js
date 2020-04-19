@@ -49,6 +49,9 @@ const RecetasProvider = (props) => {
           resultado.data.drinks === undefined
         ) {
           alert("No se encontraron datos");
+          setTimeout(() => {
+            "No se encontro";
+          }, 3000);
           return;
         }
         if (

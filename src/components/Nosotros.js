@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import imggg from "../img/nosotros.jpg";
-import Map from "./Map";
-
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
+import { Icon } from "leaflet";
 import credentials from "../utilidades/credentials";
 
 const xx = () => {
@@ -53,15 +53,19 @@ const xx = () => {
             </p>
           </div>
         </div>
-        <h1 className="fw-300 centrar-texto">Ubicacion</h1>
+        <h1 className="fw-300 centrar-texto containerElement">Ubicacion</h1>
 
-        <Map
-          googleMapURL={mapURL}
-          containerElement={<div style={{ height: "400px" }} />}
-          mapElement={<div style={{ height: "100%" }} />}
-          loadingElement={<p>Cargando</p>}
-          marker={{ lat: -34.9214, lng: -57.9544 }}
-        />
+        <Map center={[-34.9214, -57.9544]} zoom={15}>
+          <TileLayer
+            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[-34.9214, -57.9544]}>
+            <Popup>
+              <span>Estamos Aquí</span>
+            </Popup>
+          </Marker>
+        </Map>
       </div>
     </Fragment>
   );

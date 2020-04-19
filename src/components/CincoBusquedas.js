@@ -4,9 +4,11 @@ const CincoBusquedas = () => {
     localStorage.setItem("busquedas", "[]");
   }
   const titulo =
-    JSON.parse(localStorage["busquedas"]).length === 0
-      ? "No hay Busquedas"
-      : "Busquedas Recientes";
+    JSON.parse(localStorage["busquedas"]).length === 0 ? (
+      "No hay Busquedas"
+    ) : (
+      <label className="amarillo"> Busquedas Recientes</label>
+    );
 
   /* if (JSON.parse(localStorage["busquedas"]).length === 0) {
     alert("sds");

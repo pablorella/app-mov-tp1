@@ -85,7 +85,7 @@ const Receta = ({ receta }) => {
           Ver Receta
         </button>
         <Link to="compartir">
-          <button type="button" className="boton boton-verde">
+          <button type="button" className="boton boton-verde" >
             Compartir con un amigo
           </button>
         </Link>

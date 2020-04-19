@@ -218,6 +218,13 @@ select {
 .lidelocal {
   color: #b9b9b9;
 }
+.amarillo {
+  color: #e08709;
+}
+.grisesito {
+  color: #6a6a6a;
+}
+
 .imagen-chica {
   width: 20px;
   height: 50px;
@@ -236,10 +243,10 @@ select {
   }
   .contenedor-li {
     display: flex;
-    justify-content: space-around;
   }
   .lidelocal {
     color: #6a6a6a;
+    width: 20%;
   }
   .buscarbebidas {
     display: flex;
@@ -316,4 +323,12 @@ select {
 .copyright {
   margin: 0;
   color: #ffffff;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 80vh;
+}
+.containerElement {
+  height: "400px";
 }

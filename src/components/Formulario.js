@@ -23,14 +23,13 @@ const Formulario = () => {
   return (
     <Fragment>
       <form
-        className="col-12"
         onSubmit={(e) => {
           e.preventDefault();
           buscarRecetas(busqueda);
           guardarConsultar(true);
         }}
       >
-        <h3 className="fw-300 centrar-texto">Busca una Bebida</h3>
+        <h3 className="fw-300 centrar-texto amarillo">Busca una Bebida</h3>
         <ul>
           <CincoBusquedas />
         </ul>
@@ -60,13 +59,13 @@ const Formulario = () => {
         <div class="conetendor-input">
           <input
             name="nombre"
-            className="form-input"
+            className="form-input grisesito"
             type="text"
             placeholder="Buscar por Ingrediente"
             onChange={obtenerDatosReceta}
           />
           <select
-            className="form-input"
+            className="form-input grisesito"
             name="categoria"
             onChange={obtenerDatosReceta}
           >
@@ -79,7 +78,7 @@ const Formulario = () => {
           </select>
 
           <select
-            className="form-input"
+            className="form-input grisesito"
             name="veralcohol"
             onChange={obtenerDatosReceta}
           >
